@@ -1,0 +1,14 @@
+{
+  "folders": [
+	{
+		"path": "."
+	},
+	{
+		"path": "../demo-system-api"
+	},
+	{
+		"path": "../../demo-system-portal"
+	}
+],
+  "settings": {}
+}
