@@ -1,8 +1,6 @@
 name: Update ECS Service
 on:
   push:
-    branches:
-      - main
     tags:
       - 'v[0-9].[0-9]+.[0-9]+\-dev'
 jobs:
@@ -13,9 +11,6 @@ jobs:
       contents: read
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
         with:
