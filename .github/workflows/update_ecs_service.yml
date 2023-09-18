@@ -1,0 +1,24 @@
+name: Update ECS Service
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v[0-9].[0-9]+.[0-9]+\-dev'
+jobs:
+  update_ecs_service:
+    runs-on: ubuntu-latest
+
+    steps:
+      # - name: Checkout code
+      #   uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: us-west-1
+
+      - name: Update ECS service
+        run: |
+          aws ecs update-service --cluster ${{ vars.NAME }}-cluster --service  ${{ vars.NAME }}-service --force-new-deployment
