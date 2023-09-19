@@ -21,6 +21,7 @@ services:
       SNS_TOPIC_ARN: '${SNS_TOPIC_ARN}'
       DATABASE_URL: '${MONGODB_URL}'
       PORTAL_URL: '${PORTAL_URL}'
+      SUB_SERVICE_PORT: 'sub:80'
   mqtt:
     hostname: mqtt
     image: custom-mqtt-server:latest
@@ -30,7 +31,6 @@ services:
     environment:
       USERNAME: '${MQTT_USERNAME}'
       PASSWORD: '${MQTT_PASSWORD}'
-      CONNECTION_STRING: '${DB_CONNECTION_STRING}'
   auth:
     hostname: auth
     image: demo-system-auth:latest
@@ -45,3 +45,18 @@ services:
       MQTT_USERNAME: '${MQTT_USERNAME}'
       MQTT_PASSWORD: '${MQTT_PASSWORD}'
       JWT_SECRET_KEY: '${JWT_SECRET_KEY}'
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: testing
+      POSTGRES_PASSWORD: testing
+      POSTGRES_DB: default
+    ports:
+      - 5432:5432
+  sub:
+    image: demo-system-sub:latest
+    # platform: linux/amd64
+    environment:
+      CONNECTION_STRING: '${DB_CONNECTION_STRING}'
+    ports:
+      - 5008:80
