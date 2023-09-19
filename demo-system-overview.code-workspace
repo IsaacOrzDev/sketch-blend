@@ -1,23 +1,26 @@
 {
   "folders": [
-		{
-			"name": "demo-system-overview",
-			"path": "."
-		},
-		{
-			"name": "demo-system-portal",
-			"path": "../../demo-system-portal"
-		},
-		{
-			"name": "demo-system-api",
-			"path": "../demo-system-api"
-		},
-		{
-			"path": "../demo-system-auth"
-		},
-		{
-			"path": "../custom-mqtt-server"
-		}
-	],
+    {
+      "name": "demo-system-overview",
+      "path": "."
+    },
+    {
+      "name": "demo-system-portal",
+      "path": "../../demo-system-portal"
+    },
+    {
+      "name": "demo-system-api",
+      "path": "../demo-system-api"
+    },
+    {
+      "path": "../demo-system-auth"
+    },
+    {
+      "path": "../custom-mqtt-server"
+    },
+    {
+      "path": "../demo-system-terraform-stack"
+    }
+  ],
   "settings": {}
 }
