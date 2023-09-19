@@ -1,0 +1,97 @@
+name: Deploy to AWS
+on:
+  workflow_call:
+    inputs:
+      repository_name:
+        required: true
+        type: string
+    secrets:
+      AWS_ROLE_ARN:
+        required: true
+      AWS_ROLE_ARN_FOR_ECS:
+        required: true
+
+jobs:
+  build:
+    name: Build image
+    runs-on: ubuntu-20.04
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Check Commit Message
+        id: check_commit
+        run: |
+          commit_message=$(git log --format=%B -n 1 ${{ github.sha }})
+          if [[ $commit_message =~ ^- ]]; then
+            echo "::set-output name=deploy::false"
+          else
+            echo "::set-output name=deploy::true"
+          fi
+
+      - name: Configure AWS credentials
+        if: steps.check_commit.outputs.deploy == 'true'
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          # aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          # aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: us-west-1
+
+      - name: Login to Amazon ECR
+        if: steps.check_commit.outputs.deploy == 'true'
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+        with:
+          mask-password: 'true'
+
+      - name: Build, tag, and push image to Amazon ECR
+        if: steps.check_commit.outputs.deploy == 'true'
+        id: build-image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ inputs.repository_name }}
+          # IMAGE_TAG: ${{ github.sha }}
+          IMAGE_TAG: latest
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          # echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+
+  update_ecs_service:
+    name: Update ECS Service
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Check Commit Message
+        id: check_commit
+        run: |
+          commit_message=$(git log --format=%B -n 1 ${{ github.sha }})
+          if [[ $commit_message =~ ^! ]]; then
+            echo "::set-output name=deploy::true"
+          else
+            echo "::set-output name=deploy::false"
+          fi
+
+      - name: Configure AWS credentials
+        if: steps.check_commit.outputs.deploy == 'true'
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN_FOR_ECS }}
+          aws-region: us-west-1
+
+      - name: Update ECS service
+        if: steps.check_commit.outputs.deploy == 'true'
+        run: |
+          aws ecs update-service --cluster ${{ vars.NAME }}-cluster --service  ${{ vars.NAME }}-service --force-new-deployment

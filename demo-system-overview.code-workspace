@@ -1,14 +1,23 @@
 {
   "folders": [
-	{
-		"path": "."
-	},
-	{
-		"path": "../demo-system-api"
-	},
-	{
-		"path": "../../demo-system-portal"
-	}
-],
+		{
+			"name": "demo-system-overview",
+			"path": "."
+		},
+		{
+			"name": "demo-system-portal",
+			"path": "../../demo-system-portal"
+		},
+		{
+			"name": "demo-system-api",
+			"path": "../demo-system-api"
+		},
+		{
+			"path": "../demo-system-auth"
+		},
+		{
+			"path": "../custom-mqtt-server"
+		}
+	],
   "settings": {}
 }
