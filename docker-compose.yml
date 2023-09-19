@@ -1,22 +1,26 @@
 version: '3.7'
 services:
-  # api:
-  #   container_name: demo_system_api
-  #   hostname: api
-  #   image: demo-system-api:latest
-  #   # platform: linux/amd64
-  #   ports:
-  #     - '3001:3000'
-  #   environment:
-  #     MQTT_URL: mqtt://localhost:1883
-  #     MQTT_USERNAME: '${MQTT_USERNAME}'
-  #     MQTT_PASSWORD: '${MQTT_PASSWORD}'
-  #     GOOGLE_CLIENT_ID: '${GOOGLE_CLIENT_ID}'
-  #     GOOGLE_CLIENT_SECRET: '${GOOGLE_CLIENT_SECRET}'
-  #     AWS_ACCESS_KEY_ID: '${AWS_ACCESS_KEY_ID}'
-  #     AWS_SECRET_ACCESS_KEY: '${AWS_SECRET_ACCESS_KEY}'
-  #     SENDER_EMAIL: '${SENDER_EMAIL}'
-  #     SNS_TOPIC_ARN: '${SNS_TOPIC_ARN}'
+  api:
+    hostname: api
+    image: demo-system-api:latest
+    # platform: linux/amd64
+    ports:
+      - '3001:3000'
+    environment:
+      IS_MICROSERVICE: true
+      MQTT_URL: mqtt://mqtt:1883
+      MQTT_USERNAME: '${MQTT_USERNAME}'
+      MQTT_PASSWORD: '${MQTT_PASSWORD}'
+      GOOGLE_CLIENT_ID: '${GOOGLE_CLIENT_ID}'
+      GOOGLE_CLIENT_SECRET: '${GOOGLE_CLIENT_SECRET}'
+      GITHUB_CLIENT_ID: '${GITHUB_CLIENT_ID}'
+      GITHUB_CLIENT_SECRET: '${GITHUB_CLIENT_SECRET}'
+      AWS_ACCESS_KEY_ID: '${AWS_ACCESS_KEY_ID}'
+      AWS_SECRET_ACCESS_KEY: '${AWS_SECRET_ACCESS_KEY}'
+      SENDER_EMAIL: '${SENDER_EMAIL}'
+      SNS_TOPIC_ARN: '${SNS_TOPIC_ARN}'
+      DATABASE_URL: '${MONGODB_URL}'
+      PORTAL_URL: '${PORTAL_URL}'
   mqtt:
     hostname: mqtt
     image: custom-mqtt-server:latest
@@ -26,6 +30,7 @@ services:
     environment:
       USERNAME: '${MQTT_USERNAME}'
       PASSWORD: '${MQTT_PASSWORD}'
+      CONNECTION_STRING: '${DB_CONNECTION_STRING}'
   auth:
     hostname: auth
     image: demo-system-auth:latest
