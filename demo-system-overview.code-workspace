@@ -13,12 +13,19 @@
       "path": "../demo-system-api"
     },
     {
+      "name": "demo-system-auth",
       "path": "../demo-system-auth"
     },
     {
+      "name": "custom-mqtt-server",
       "path": "../custom-mqtt-server"
     },
     {
+      "name": "demo-system-sub",
+      "path": "../demo-system-sub"
+    },
+    {
+      "name": "demo-system-terraform-stack",
       "path": "../demo-system-terraform-stack"
     }
   ],

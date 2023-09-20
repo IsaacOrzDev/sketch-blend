@@ -21,7 +21,7 @@ services:
       SNS_TOPIC_ARN: '${SNS_TOPIC_ARN}'
       DATABASE_URL: '${MONGODB_URL}'
       PORTAL_URL: '${PORTAL_URL}'
-      SUB_SERVICE_PORT: 'sub:80'
+      SUB_SERVICE_PORT: 'sub:5008'
   mqtt:
     hostname: mqtt
     image: custom-mqtt-server:latest
@@ -59,4 +59,4 @@ services:
     environment:
       CONNECTION_STRING: '${DB_CONNECTION_STRING}'
     ports:
-      - 5008:80
+      - 5008:5008
