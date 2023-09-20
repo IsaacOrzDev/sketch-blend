@@ -58,5 +58,6 @@ services:
     # platform: linux/amd64
     environment:
       CONNECTION_STRING: '${DB_CONNECTION_STRING}'
+      ENABLE_GRPC_REFLECTION: true
     ports:
       - 5008:5008
