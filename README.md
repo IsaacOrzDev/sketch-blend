@@ -1,5 +1,7 @@
 # Demo System Overview
 
+![AWS](./diagrams_image.png)
+
 ### Backend Services
 
 - [API-Module-Repo](https://github.com/IsaacOrzDev/demo-system-api)
@@ -22,7 +24,7 @@
   ![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white)
   ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
-### Infrastructure
+### Infrastructure as Code
 
 - [Terraform-Repo](https://github.com/IsaacOrzDev/demo-system-terraform-stack)
 
