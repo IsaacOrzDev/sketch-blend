@@ -1,6 +1,6 @@
 version: '3.7'
 services:
-  api:
+  api-module:
     hostname: api
     image: demo-system-api:latest
     # platform: linux/amd64
@@ -53,11 +53,26 @@ services:
       POSTGRES_DB: default
     ports:
       - 5432:5432
-  sub:
-    image: demo-system-sub:latest
+  user-module:
+    image: demo-system-user-module:latest
     # platform: linux/amd64
     environment:
       CONNECTION_STRING: '${DB_CONNECTION_STRING}'
       ENABLE_GRPC_REFLECTION: true
     ports:
       - 5008:5008
+  generator-module:
+    image: demo-system-generator-module:latest
+    platform: linux/amd64
+    environment:
+      REPLICATE_API_TOKEN: '${REPLICATE_API_TOKEN}'
+      REPLICATE_MODEL: '${REPLICATE_MODEL}'
+    ports:
+      - 5002:5002
+  document-module:
+    image: demo-system-document-module:latest
+    platform: linux/amd64
+    environment:
+      DATABASE_URL: '${MONGODB_URL}'
+    ports:
+      - 5003:5003
