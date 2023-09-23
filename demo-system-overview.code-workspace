@@ -5,27 +5,27 @@
       "path": "."
     },
     {
-      "name": "demo-system-portal",
+      "name": "portal",
       "path": "../../demo-system-portal"
     },
     {
-      "name": "demo-system-api",
+      "name": "api-module",
       "path": "../demo-system-api"
     },
     {
-      "name": "demo-system-auth",
-      "path": "../demo-system-auth"
+      "name": "user-module",
+      "path": "../demo-system-user-module"
     },
     {
-      "name": "custom-mqtt-server",
-      "path": "../custom-mqtt-server"
+      "name": "generator-module",
+      "path": "../demo-system-generator-module"
     },
     {
-      "name": "demo-system-sub",
-      "path": "../demo-system-sub"
+      "name": "document-module",
+      "path": "../demo-system-document-module"
     },
     {
-      "name": "demo-system-terraform-stack",
+      "name": "terraform-stack",
       "path": "../demo-system-terraform-stack"
     }
   ],
