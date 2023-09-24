@@ -8,9 +8,6 @@ services:
       - '3001:3000'
     environment:
       IS_MICROSERVICE: true
-      MQTT_URL: mqtt://mqtt:1883
-      MQTT_USERNAME: '${MQTT_USERNAME}'
-      MQTT_PASSWORD: '${MQTT_PASSWORD}'
       GOOGLE_CLIENT_ID: '${GOOGLE_CLIENT_ID}'
       GOOGLE_CLIENT_SECRET: '${GOOGLE_CLIENT_SECRET}'
       GITHUB_CLIENT_ID: '${GITHUB_CLIENT_ID}'
@@ -21,30 +18,7 @@ services:
       SNS_TOPIC_ARN: '${SNS_TOPIC_ARN}'
       DATABASE_URL: '${MONGODB_URL}'
       PORTAL_URL: '${PORTAL_URL}'
-      SUB_SERVICE_PORT: 'sub:5008'
-  mqtt:
-    hostname: mqtt
-    image: custom-mqtt-server:latest
-    platform: linux/amd64
-    ports:
-      - '1883:1883'
-    environment:
-      USERNAME: '${MQTT_USERNAME}'
-      PASSWORD: '${MQTT_PASSWORD}'
-  auth:
-    hostname: auth
-    image: demo-system-auth:latest
-    platform: linux/amd64
-    ports:
-      - '8000:8000'
-    depends_on:
-      - mqtt
-    environment:
-      MQTT_HOST: mqtt
-      MQTT_PORT: 1883
-      MQTT_USERNAME: '${MQTT_USERNAME}'
-      MQTT_PASSWORD: '${MQTT_PASSWORD}'
-      JWT_SECRET_KEY: '${JWT_SECRET_KEY}'
+      USER_MODULE_PORT: 'user-module:5008'
   db:
     image: postgres:latest
     environment:
@@ -54,6 +28,8 @@ services:
     ports:
       - 5432:5432
   user-module:
+    depends_on:
+      - db
     image: demo-system-user-module:latest
     # platform: linux/amd64
     environment:
