@@ -18,7 +18,9 @@ services:
       SNS_TOPIC_ARN: '${SNS_TOPIC_ARN}'
       DATABASE_URL: '${MONGODB_URL}'
       PORTAL_URL: '${PORTAL_URL}'
-      USER_MODULE_PORT: 'user-module:5008'
+      USER_MODULE_URL: 'user-module:5008'
+      GENERATOR_MODULE_URL: 'user-module:5002'
+      DOCUMENT_MODULE_URL: 'user-module:5003'
   db:
     image: postgres:latest
     environment:
