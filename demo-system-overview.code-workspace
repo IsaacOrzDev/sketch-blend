@@ -6,7 +6,7 @@
     },
     {
       "name": "portal",
-      "path": "../../demo-system-portal"
+      "path": "../demo-system-portal"
     },
     {
       "name": "api-module",
