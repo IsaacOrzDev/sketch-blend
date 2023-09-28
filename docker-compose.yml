@@ -20,8 +20,8 @@ services:
       API_URL: '${API_URL}'
       PORTAL_URL: '${PORTAL_URL}'
       USER_MODULE_URL: 'user-module:5008'
-      GENERATOR_MODULE_URL: 'user-module:5002'
-      DOCUMENT_MODULE_URL: 'user-module:5003'
+      GENERATOR_MODULE_URL: 'generator-module:5002'
+      DOCUMENT_MODULE_URL: 'document-module:5003'
       NODE_ENV: 'development'
   db:
     image: postgres:latest
