@@ -6,23 +6,23 @@
     },
     {
       "name": "api-module",
-      "path": "../demo-system-api"
+      "path": "../sketch-blend-api-module"
     },
     {
       "name": "user-module",
-      "path": "../demo-system-user-module"
+      "path": "../sketch-blend-user-module"
     },
     {
       "name": "generator-module",
-      "path": "../demo-system-generator-module"
+      "path": "../sketch-blend-generator-module"
     },
     {
       "name": "document-module",
-      "path": "../demo-system-document-module"
+      "path": "../sketch-blend-document-module"
     },
     {
-      "name": "terraform-stack",
-      "path": "../demo-system-terraform-stack"
+      "name": "terraform",
+      "path": "../sketch-blend-terraform"
     }
   ],
   "settings": {}
