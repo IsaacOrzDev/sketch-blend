@@ -2,7 +2,7 @@ version: '3.7'
 services:
   api-module:
     hostname: api
-    image: demo-system-api:latest
+    image: sketch-blend-api-module:latest
     # platform: linux/amd64
     ports:
       - '3001:3000'
@@ -33,8 +33,8 @@ services:
   #     - 5432:5432
   user-module:
     # depends_on:
-      # - db
-    image: demo-system-user-module:latest
+    # - db
+    image: sketch-blend-user-module:latest
     # platform: linux/amd64
     environment:
       CONNECTION_STRING: '${DB_CONNECTION_STRING}'
@@ -42,7 +42,7 @@ services:
     ports:
       - 5008:5008
   generator-module:
-    image: demo-system-generator-module:latest
+    image: sketch-blend-generator-module:latest
     platform: linux/amd64
     environment:
       REPLICATE_API_TOKEN: '${REPLICATE_API_TOKEN}'
@@ -51,7 +51,7 @@ services:
     ports:
       - 5002:5002
   document-module:
-    image: demo-system-document-module:latest
+    image: sketch-blend-document-module:latest
     platform: linux/amd64
     environment:
       DATABASE_URL: '${MONGODB_URL}'
