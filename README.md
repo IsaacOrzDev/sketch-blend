@@ -1,4 +1,10 @@
-# Sketch Blend Overview
+# Sketch Blend
+
+A drawing and sharing portal that is powered by micro-service architecture in Kubernetes with AWS, and multiple backend lanaguages linked with Grpc
+
+![Banner](./banner.png)
+
+### Architecture Overview
 
 ![AWS](./diagrams_image.png)
 
