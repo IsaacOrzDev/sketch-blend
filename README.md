@@ -1,6 +1,6 @@
 # Sketch Blend
 
-A drawing and sharing portal that is powered by micro-service architecture in Kubernetes with AWS, and multiple backend lanaguages linked with Grpc
+A drawing and sharing portal that is powered by micro-service architecture in Kubernetes with AWS, and multiple backend languages linked with Grpc
 
 ![Banner](./banner.png)
 
@@ -14,7 +14,7 @@ A drawing and sharing portal that is powered by micro-service architecture in Ku
 
   ![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)
 
-- [API Module Repo](https://github.com/IsaacOrzDev/sketch-blend-api)
+- [API Module Repo](https://github.com/IsaacOrzDev/sketch-blend-api-module)
 
   ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
   ![NestJS](https://img.shields.io/badge/nestjs-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white)
