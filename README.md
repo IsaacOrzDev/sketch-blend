@@ -1,6 +1,6 @@
 # [Sketch Blend](https://sketch-blend.isaacdev.net)
 
-A drawing and sharing portal that is powered by micro-service architecture in Kubernetes with AWS, and multiple backend languages linked with Grpc
+A drawing and sharing website that is powered by micro-service architecture in Kubernetes with AWS, and multiple backend languages.
 
 ![Banner](./banner.png)
 
@@ -50,7 +50,7 @@ A drawing and sharing portal that is powered by micro-service architecture in Ku
 
 ### Frontend Portal
 
-- [Portal-Repo](https://github.com/IsaacOrzDev/sketch-blend-portal)
+- [Portal Repo](https://github.com/IsaacOrzDev/sketch-blend-portal)
 
   ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
   ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
