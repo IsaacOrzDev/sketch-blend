@@ -52,6 +52,7 @@ services:
       REPLICATE_API_TOKEN: '${REPLICATE_API_TOKEN}'
       SCRIBBLE_MODEL: '${SCRIBBLE_MODEL}'
       BLIP_MODEL: '${BLIP_MODEL}'
+      N_PROMPT: '${N_PROMPT}'
     ports:
       - 5002:5002
   document-module:
