@@ -8,6 +8,10 @@ A drawing and sharing website that is powered by micro-service architecture in K
 
 ![AWS](./diagrams_image.png)
 
+### Container Diagram
+
+![Container Diagram](./sketch-blend-container-diagram.drawio.svg)
+
 ### Backend Services
 
 - [API Docs](https://sketch-blend-api-dev.isaacdev.net/docs)
