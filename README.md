@@ -14,9 +14,11 @@ A drawing and sharing website that is powered by micro-service architecture in K
 
 ### Backend Services
 
-- [API Docs](https://sketch-blend-api-dev.isaacdev.net/docs)
+- [API Docs](https://sketch-blend-api.isaacdev.net/docs)
 
   ![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)
+
+  ⚠ The Docs sometime may not be available, because the developer may shut down Kubernetes cluster to save money💵.
 
 - [API Module Repo](https://github.com/IsaacOrzDev/sketch-blend-api-module)
 
@@ -39,6 +41,13 @@ A drawing and sharing website that is powered by micro-service architecture in K
   ![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white)
   ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
+- [Temporary API Repo](https://github.com/IsaacOrzDev/sketch-blend-temporary-api)
+
+  ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+  ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
+
+  It is a temporary API for the frontend portal to use if the Kubernetes cluster is shut down.
+
 ### Infrastructure as Code
 
 - [EKS / ECS Terraform Repo](https://github.com/IsaacOrzDev/sketch-blend-terraform)
@@ -51,6 +60,11 @@ A drawing and sharing website that is powered by micro-service architecture in K
 - [SNS / SES Email Pulumi Repo](https://github.com/IsaacOrzDev/email-service-pulumi-stack)
 
   ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+  ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
+
+- [Lambda Temporary API Pulumi Repo](https://github.com/IsaacOrzDev/sketch-blend-pulumi)
+
+  ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
   ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
 ### Frontend Portal

@@ -21,9 +21,21 @@
       "path": "../sketch-blend-document-module"
     },
     {
+      "name": "queue",
+      "path": "../sketch-blend-queue"
+    },
+    {
       "name": "terraform",
       "path": "../sketch-blend-terraform"
-    }
+    },
+    {
+      "name": "temporary-api",
+      "path": "../sketch-blend-temporary-api"
+    },
+    {
+      "name": "pulumi",
+      "path": "../sketch-blend-pulumi"
+    },
   ],
   "settings": {}
 }

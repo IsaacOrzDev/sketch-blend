@@ -32,11 +32,11 @@ with Diagram("", graph_attr=graph_attr, show=False, direction='LR'):
         portal_serverless = Lambda("Serverless")
 
 
-      with Cluster("AWS"):
+      with Cluster("AWS Cloud"):
 
         route = Route53("Domain Names")
         cert = CertificateManager("Certificate")
-        with Cluster("VPC of dev env"):
+        with Cluster("VPC of Staging env"):
           vpc = VPC("VPC")        
           alb = ElbApplicationLoadBalancer("ALB")
           ecs = ElasticContainerService("ECS")
@@ -66,7 +66,7 @@ with Diagram("", graph_attr=graph_attr, show=False, direction='LR'):
         portal_frontend >> route
         portal_backend >> route
 
-        with Cluster("VPC of prod env"):
+        with Cluster("VPC of Production env"):
 
           vpc_eks = VPC("VPC")
           public_subnets = PublicSubnet("Public Subnets")

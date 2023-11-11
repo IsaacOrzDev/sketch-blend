@@ -2,12 +2,11 @@ version: '3.7'
 services:
   api-module:
     hostname: api
-    image: sketch-blend-api-module:latest
-    # platform: linux/amd64
+    image: '${REGISTRY_SERVER}/sketch-blend-api-module:latest'
+    platform: linux/amd64
     ports:
       - '3001:3000'
     environment:
-      IS_MICROSERVICE: true
       GOOGLE_CLIENT_ID: '${GOOGLE_CLIENT_ID}'
       GOOGLE_CLIENT_SECRET: '${GOOGLE_CLIENT_SECRET}'
       GITHUB_CLIENT_ID: '${GITHUB_CLIENT_ID}'
@@ -38,15 +37,15 @@ services:
   user-module:
     # depends_on:
     # - db
-    image: sketch-blend-user-module:latest
-    # platform: linux/amd64
+    image: '${REGISTRY_SERVER}/sketch-blend-user-module:latest'
+    platform: linux/amd64
     environment:
       CONNECTION_STRING: '${DB_CONNECTION_STRING}'
       ENABLE_GRPC_REFLECTION: true
     ports:
       - 5008:5008
   generator-module:
-    image: sketch-blend-generator-module:latest
+    image: '${REGISTRY_SERVER}/sketch-blend-generator-module:latest'
     platform: linux/amd64
     environment:
       REPLICATE_API_TOKEN: '${REPLICATE_API_TOKEN}'
@@ -56,7 +55,7 @@ services:
     ports:
       - 5002:5002
   document-module:
-    image: sketch-blend-document-module:latest
+    image: '${REGISTRY_SERVER}/sketch-blend-document-module:latest'
     platform: linux/amd64
     environment:
       DATABASE_URL: '${MONGODB_URL}'
